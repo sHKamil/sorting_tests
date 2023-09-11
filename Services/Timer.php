@@ -2,7 +2,6 @@
 
 class Timer
 {
-    public $times = [];
     private $precision;
 
     public function __construct(Int $precision = 5) {
