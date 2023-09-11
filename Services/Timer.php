@@ -9,11 +9,11 @@ class Timer
         $this->precision = $precision;
     }
 
-    public function timeMeter(Object $object, Array $array) : Float | False
+    public function timeMeter(Object $object, String $method, Array $array) : Float | False
     {
-        if(method_exists($object, 'sort')) {
+        if(method_exists($object, $method)) {
             $start_time = microtime(true);
-            $object->sort($array);
+            $object->$method($array);
             $end_time = microtime(true);
             return round($end_time - $start_time, $this->precision);
         }else{
