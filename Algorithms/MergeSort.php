@@ -1,6 +1,8 @@
 <?php
 
-class MergeSort {
+class MergeSort 
+{
+
     public static function sort(array $array): array {
         return self::mergeSortHelper($array, function($a, $b) {
             return $a <=> $b;
@@ -31,7 +33,6 @@ class MergeSort {
         $mid = (int) $length / 2;
         $left = array_slice($array, 0, $mid);
         $right = array_slice($array, $mid);
-
         $left = self::mergeSortHelper($left, $comparator);
         $right = self::mergeSortHelper($right, $comparator);
 
@@ -47,15 +48,12 @@ class MergeSort {
                 $result[] = array_shift($right);
             }
         }
-
         while (count($left) > 0) {
             $result[] = array_shift($left);
         }
-
         while (count($right) > 0) {
             $result[] = array_shift($right);
         }
-
         return $result;
     }
 }

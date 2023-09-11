@@ -5,6 +5,7 @@ require_once 'Services/GetArray.php';
 require_once 'Services/Timer.php';
 require_once 'Algorithms/QuickSort.php';
 require_once 'Algorithms/MergeSort.php';
+require_once 'Algorithms/HeapSort.php';
 
 function dd($content) {
     return die(var_dump($content));
@@ -26,9 +27,15 @@ $floats = GetArray::get('floats.txt');
 // echo 'Floats: ' . $Timer->timeMeter(new QuickSort, 'sort', $floats) . "<br>";
 // echo 'Dates: ' . $Timer->timeMeter(new QuickSort, 'sortDate', $dates) . "<br><br>";
 
-echo 'Integers: ' . $Timer->timeMeter(new MergeSort, 'sort', $integers) . "<br>";
-echo 'Strings: ' . $Timer->timeMeter(new MergeSort, 'sort', $strings) . "<br>";
-echo 'Mixed (Int / String): ' . $Timer->timeMeter(new MergeSort, 'sortMixed', $mixed) . "<br>";
-echo 'Floats: ' . $Timer->timeMeter(new MergeSort, 'sort', $floats) . "<br>";
-echo 'Dates: ' . $Timer->timeMeter(new MergeSort, 'sortDate', $dates) . "<br>";
+// echo 'Integers: ' . $Timer->timeMeter(new MergeSort, 'sort', $integers) . "<br>";
+// echo 'Strings: ' . $Timer->timeMeter(new MergeSort, 'sort', $strings) . "<br>";
+// echo 'Mixed (Int / String): ' . $Timer->timeMeter(new MergeSort, 'sortMixed', $mixed) . "<br>";
+// echo 'Floats: ' . $Timer->timeMeter(new MergeSort, 'sort', $floats) . "<br>";
+// echo 'Dates: ' . $Timer->timeMeter(new MergeSort, 'sortDate', $dates) . "<br>";
+
+echo 'Integers: ' . $Timer->timeMeter(new HeapSort, 'sort', $integers) . "<br>";
+echo 'Strings: ' . $Timer->timeMeter(new HeapSort, 'sort', $strings) . "<br>";
+echo 'Mixed (Int / String): ' . $Timer->timeMeter(new HeapSort, 'sortMixed', $mixed) . "<br>";
+echo 'Floats: ' . $Timer->timeMeter(new HeapSort, 'sort', $floats) . "<br>";
+echo 'Dates: ' . $Timer->timeMeter(new HeapSort, 'sortDate', $dates) . "<br>";
 
