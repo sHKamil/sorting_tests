@@ -8,20 +8,6 @@ class BubbleSort
         });
     }
 
-    public static function sortDates(array $dates): array {
-        return self::bubbleSortHelper($dates, function($a, $b) {
-            $dateA = new DateTime($a);
-            $dateB = new DateTime($b);
-            return $dateA <=> $dateB;
-        });
-    }
-
-    public static function sortMixed(array $array): array {
-        return self::bubbleSortHelper($array, function($a, $b) {
-            return $a <=> $b;
-        });
-    }
-
     private static function bubbleSortHelper(array $array, callable $comparator): array {
         $n = count($array);
         

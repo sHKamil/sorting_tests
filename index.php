@@ -1,6 +1,5 @@
 <?php
-
-set_time_limit(300);
+set_time_limit(500);
 
 require_once 'Services/JitStatus.php';
 require_once 'Services/GetArray.php';
@@ -22,11 +21,10 @@ echo 'JIT: ' . $JitStatus->status . "<br><br>";
 $integers = array_map('intval', GetArray::get('integers.txt'));
 $strings = GetArray::get('strings.txt');
 $mixed = GetArray::get('mixed.txt');
-$dates = GetArray::get('dates.txt');
-// $dates = array_map(function($string_dates) {
-//     return new DateTime($string_dates);
-// }, $string_dates);
-// dd($dates);
+$string_dates = GetArray::get('dates.txt');
+$dates = array_map(function($string_dates) {
+    return new DateTime($string_dates);
+}, $string_dates);
 $floats = GetArray::get('floats.txt');
 
 // QUICK SORT ------------------------------------------------------------
@@ -40,7 +38,7 @@ $floats = GetArray::get('floats.txt');
 // echo '<td>' . $Timer->timeMeter(new QuickSort, 'sort', $strings) . "</td>";
 // echo '<td>' . $Timer->timeMeter(new QuickSort, 'sortMixed', $mixed) . "</td>";
 // echo '<td>' . $Timer->timeMeter(new QuickSort, 'sort', $floats) . "</td>";
-// echo '<td>' . $Timer->timeMeter(new QuickSort, 'sortDate', $dates) . "</tr></table>";
+// echo '<td>' . $Timer->timeMeter(new QuickSort, 'sort', $dates) . "</tr></table>";
 
 // MERGE SORT ------------------------------------------------------------
 // echo 'Integers: ' . $Timer->timeMeter(new MergeSort, 'sort', $integers) . "<br>";
@@ -51,9 +49,9 @@ $floats = GetArray::get('floats.txt');
 
 // echo '<table><tr><td>' . $Timer->timeMeter(new MergeSort, 'sort', $integers) . "</td>";
 // echo '<td>' . $Timer->timeMeter(new MergeSort, 'sort', $strings) . "</td>";
-// echo '<td>' . $Timer->timeMeter(new MergeSort, 'sortMixed', $mixed) . "</td>";
+// echo '<td>' . $Timer->timeMeter(new MergeSort, 'sort', $mixed) . "</td>";
 // echo '<td>' . $Timer->timeMeter(new MergeSort, 'sort', $floats) . "</td>";
-// echo '<td>' . $Timer->timeMeter(new MergeSort, 'sortDate', $dates) . "</tr></table>";
+// echo '<td>' . $Timer->timeMeter(new MergeSort, 'sort', $dates) . "</tr></table>";
 
 // HEAP SORT ------------------------------------------------------------
 // echo 'Integers: ' . $Timer->timeMeter(new HeapSort, 'sort', $integers) . "<br>";
@@ -64,9 +62,9 @@ $floats = GetArray::get('floats.txt');
 
 // echo '<table><tr><td>' . $Timer->timeMeter(new HeapSort, 'sort', $integers) . "</td>";
 // echo '<td>' . $Timer->timeMeter(new HeapSort, 'sort', $strings) . "</td>";
-// echo '<td>' . $Timer->timeMeter(new HeapSort, 'sortMixed', $mixed) . "</td>";
+// echo '<td>' . $Timer->timeMeter(new HeapSort, 'sort', $mixed) . "</td>";
 // echo '<td>' . $Timer->timeMeter(new HeapSort, 'sort', $floats) . "</td>";
-// echo '<td>' . $Timer->timeMeter(new HeapSort, 'sortDate', $dates) . "</tr></table>";
+// echo '<td>' . $Timer->timeMeter(new HeapSort, 'sort', $dates) . "</tr></table>";
 
 // INSERTION SORT ------------------------------------------------------------
 // echo 'Integers: ' . $Timer->timeMeter(new InsertionSort, 'sort', $integers) . "<br>";
@@ -77,9 +75,9 @@ $floats = GetArray::get('floats.txt');
 
 // echo '<table><tr><td>' . $Timer->timeMeter(new InsertionSort, 'sort', $integers) . "</td>";
 // echo '<td>' . $Timer->timeMeter(new InsertionSort, 'sort', $strings) . "</td>";
-// echo '<td>' . $Timer->timeMeter(new InsertionSort, 'sortMixed', $mixed) . "</td>";
+// echo '<td>' . $Timer->timeMeter(new InsertionSort, 'sort', $mixed) . "</td>";
 // echo '<td>' . $Timer->timeMeter(new InsertionSort, 'sort', $floats) . "</td>";
-// echo '<td>' . $Timer->timeMeter(new InsertionSort, 'sortDate', $dates) . "</tr></table>";
+// echo '<td>' . $Timer->timeMeter(new InsertionSort, 'sort', $dates) . "</tr></table>";
 
 // BUBBLE SORT ------------------------------------------------------------
 // echo 'Integers: ' . $Timer->timeMeter(new BubbleSort, 'sort', $integers) . "<br>";
@@ -88,3 +86,8 @@ $floats = GetArray::get('floats.txt');
 // echo 'Floats: ' . $Timer->timeMeter(new BubbleSort, 'sort', $floats) . "<br>";
 // echo 'Dates: ' . $Timer->timeMeter(new BubbleSort, 'sortDate', $dates) . "<br>";
 
+// echo '<table><tr><td>' . $Timer->timeMeter(new BubbleSort, 'sort', $integers) . "</td>";
+// echo '<td>' . $Timer->timeMeter(new BubbleSort, 'sort', $strings) . "</td>";
+// echo '<td>' . $Timer->timeMeter(new BubbleSort, 'sort', $mixed) . "</td>";
+// echo '<td>' . $Timer->timeMeter(new BubbleSort, 'sort', $floats) . "</td>";
+// echo '<td>' . $Timer->timeMeter(new BubbleSort, 'sort', $dates) . "</tr></table>";

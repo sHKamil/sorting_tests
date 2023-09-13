@@ -9,20 +9,6 @@ class HeapSort
         });
     }
 
-    public static function sortDate(array $dates): array {
-        return self::heapSortHelper($dates, function($a, $b) {
-            $dateA = new DateTime($a);
-            $dateB = new DateTime($b);
-            return $dateA <=> $dateB;
-        });
-    }
-
-    public static function sortMixed(array $array): array {
-        return self::heapSortHelper($array, function($a, $b) {
-            return $a <=> $b;
-        });
-    }
-
     private static function heapSortHelper(array $array, callable $comparator): array {
         $length = count($array);
         for ($i = floor($length / 2) - 1; $i >= 0; $i--) {

@@ -8,24 +8,6 @@ class InsertionSort {
         });
     }
 
-    public static function sortDate(array $dates): array {
-        return self::insertionSortHelper($dates, function($a, $b) {
-            try {
-                $dateA = new DateTime($a);
-                $dateB = new DateTime($b);
-            } catch (Exception $e) {
-                return '0';
-            }
-            return $dateA <=> $dateB;
-        });
-    }
-
-    public static function sortMixed(array $array): array {
-        return self::insertionSortHelper($array, function($a, $b) {
-            return $a <=> $b;
-        });
-    }
-
     private static function insertionSortHelper(array $array, callable $comparator): array {
         $length = count($array);
 

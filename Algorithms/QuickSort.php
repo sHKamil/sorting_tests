@@ -49,49 +49,4 @@ class QuickSort
 
         return array_merge(self::sort($left), [$pivot], self::sort($right));
     }
-
-    public static function sortDate(array $array): array {
-        $length = count($array);
-
-        if ($length <= 1) {
-            return $array;
-        }
-
-        $pivot = $array[0];
-        $left = $right = [];
-
-        for ($i = 1; $i < $length; $i++) {
-            $isPivotDate = self::isDate($pivot);
-            $isCurrentDate = self::isDate($array[$i]);
-
-            if ($isPivotDate && $isCurrentDate) {
-                $pivotDate = new DateTime($pivot);
-                $currentDate = new DateTime($array[$i]);
-                if ($currentDate <= $pivotDate) {
-                    $left[] = $array[$i];
-                } else {
-                    $right[] = $array[$i];
-                }
-            } elseif (!$isPivotDate && !$isCurrentDate) {
-                if ($array[$i] <= $pivot) {
-                    $left[] = $array[$i];
-                } else {
-                    $right[] = $array[$i];
-                }
-            } else {
-                if ($isPivotDate) {
-                    $right[] = $array[$i];
-                } else {
-                    $left[] = $array[$i];
-                }
-            }
-        }
-
-        return array_merge(self::sort($left), [$pivot], self::sort($right));
-    }
-
-    private static function isDate($value): bool {
-        $date = DateTime::createFromFormat('Y-m-d', $value);
-        return $date && $date->format('Y-m-d') == $value;
-    }
 }

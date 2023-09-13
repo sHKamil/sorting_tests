@@ -8,15 +8,7 @@ class MergeSort
             return $a <=> $b;
         });
     }
-
-    public static function sortDate(array $dates): array {
-        return self::mergeSortHelper($dates, function($a, $b) {
-            $dateA = new DateTime($a);
-            $dateB = new DateTime($b);
-            return $dateA <=> $dateB;
-        });
-    }
-
+    
     public static function sortMixed(array $array): array {
         return self::mergeSortHelper($array, function($a, $b) {
             return $a <=> $b;
@@ -30,7 +22,7 @@ class MergeSort
             return $array;
         }
 
-        $mid = (int) $length / 2;
+        $mid = floor($length / 2);
         $left = array_slice($array, 0, $mid);
         $right = array_slice($array, $mid);
         $left = self::mergeSortHelper($left, $comparator);
